@@ -43,6 +43,3 @@ about:
   doc_url: https://gspread-dataframe.readthedocs.io
   dev_url: https://github.com/robin900/gspread-dataframe
 
-extra:
-  recipe-maintainers:
-    - AddYourGitHubIdHere
