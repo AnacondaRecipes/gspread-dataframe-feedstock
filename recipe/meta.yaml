@@ -1,0 +1,45 @@
+{% set name = "gspread-dataframe" %}
+{% set version = "3.3.1" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/gspread-dataframe-{{ version }}.tar.gz
+  sha256: 2f8435be07c03b5a92c48ba1dd7aee14f23ada1660da8338219459a92652312e
+
+build:
+  script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation --ignore-installed --no-cache-dir -vv
+  number: 0
+
+requirements:
+  host:
+    - python
+    - pip
+    - wheel
+    - setuptools
+  run:
+    - python
+    - gspread >=3.0.0
+    - pandas >=0.24.0
+    - six >=1.12.0
+
+test:
+  imports:
+    - gspread_dataframe
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/robin900/gspread-dataframe
+  summary: Read/write gspread worksheets using pandas DataFrames
+  description: This package allows easy data flow between a worksheet in a Google spreadsheet and a Pandas DataFrame.
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  doc_url: https://gspread-dataframe.readthedocs.io
+  dev_url: https://github.com/robin900/gspread-dataframe
+
